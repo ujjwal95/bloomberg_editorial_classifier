@@ -4,6 +4,9 @@
 ### Industry Mentors: Daniel Preotiuc-Pietro (Bloomberg), Kai-Zhan Lee (Bloomberg)
 
 
+
+## Directory Details
+
 ### data_collection
 
 The data_collection directory houses all the code for data collection for the project. 
