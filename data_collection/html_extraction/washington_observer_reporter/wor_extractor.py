@@ -67,23 +67,16 @@ def extract_content(html_soup):
     Input : Content in BeautifulSoup format
     Output : Text content of the article
     """
-    list_pre = ["subscriber-preview", "subscriber-only"]
     text = ''
     if html_soup.findAll('div', attrs = {"itemprop" : "articleBody"}) is not None:
         temp_soup = html_soup.find('div', attrs = {"itemprop" : "articleBody"})
-        for l in list_pre:
-            if temp_soup.findAll('div', attrs = {'class':l}) is not None:
-                soup = temp_soup.findAll('div', attrs = {'class':l})
-                for s in soup:
-                    text = text + ' ' + s.text
-        if text == "" :
-            soup = temp_soup.findAll('p')
-            for s in soup:
-                text = text + ' ' + s.text
-    if text == "":
+        soup = temp_soup.findAll('p')
+        for s in soup:
+            text = text + ' ' + s.text
+    else:
         temp_soup = html_soup.findAll('p')
         for s in temp_soup:
-            text = text + ' ' + s.text 
+            text = text + ' ' + s.text
     return text.strip()
 
 
