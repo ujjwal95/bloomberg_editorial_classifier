@@ -80,6 +80,10 @@ def extract_content(html_soup):
             soup = temp_soup.findAll('p')
             for s in soup:
                 text = text + ' ' + s.text
+    if text == "":
+        temp_soup = html_soup.findAll('p')
+        for s in temp_soup:
+            text = text + ' ' + s.text 
     return text.strip()
 
 
