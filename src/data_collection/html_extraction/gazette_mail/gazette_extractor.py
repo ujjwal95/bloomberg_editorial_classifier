@@ -36,6 +36,26 @@ def extract_date(html_soup):
     return html_date
 
 
+def extract_category(url):
+    """
+    Extracts category of the article from URL
+    Input : URL
+    Output : Category
+    """
+    if "/opinion/" not in url :
+        return "regular"
+    elif "/editorial/" in url:
+        return "editorial"
+    elif "/op_ed_commentaries/" in url :
+        return "oped"
+    elif "/letter_to_editor/"  in url or "/letters_to_editor/"  in url or "/readers_vent/"  in url:
+        return "other"
+    elif "/columnists/" in url or "guest" in url or "/daily_mail_opinion/" in url:
+        return "guest"
+    else:
+        return "other"
+
+
 def extract_heading(html_soup):
     """
     Extracts title of the article from content
@@ -113,7 +133,23 @@ def main():
             tag = extract_keywords(html_soup)
             text = extract_content(html_soup)
             author = extract_author(html_soup)
-            gazette_csv = gazette_csv.append({"URL": url, "date": art_date, "title": title,"content": text,"tag": tag, "Editorial": row["Type"], "author": author}, ignore_index = True)
+            category = extract_category(url)
+            gazette_csv = gazette_csv.append({"URL": url, "date": art_date, "title": title,"content": text,"tag": tag, "Editorial": category, "author": author}, ignore_index = True)
         except:
             err = err + 1
     gazette_csv.to_csv("data/collected/gazette_mail.csv", index=False)
+
+
+
+#### Temporary functions
+def category_assignement():
+    """
+    A Temporary Function that was implemented to reassign categories. 
+    """
+    gazzette_csv = pd.read_csv("data/collected/gazette_mail.csv")
+    for i, row in gazzette_csv.iterrows():
+        category = extract_category(row["URL"])
+        gazzette_csv.loc[i, "Editorial"] = category
+    gazzette_csv.to_csv("data/collected/gazette_mail.csv", index=False)
+
+
