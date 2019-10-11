@@ -9,3 +9,4 @@ Few pointers:
    If 'guest' in article url, category= guest
    If 'opinion' in article url, category= editorial
    Else category= regular
+-> Used dates scraped from the articles
