@@ -77,28 +77,14 @@ def main():
     for Digital Journal in csv format in the data/collected/ directory from the path
     """
 
-df_links = pd.read_csv('data/tagged/ns-stories-full.csv', header=None)
-df_links.columns = ['source', 'date', 'label', 'url']
+    df_links = pd.read_csv('data/tagged/ns-stories-full.csv', header=None)
+    df_links.columns = ['source', 'date', 'label', 'url']
 
-df_dj = df_links[df_links['source'] == 'Digital Journal'].reset_index(drop=True)
-df_dj['date'] = pd.to_datetime(df_dj['date'].apply(lambda x: x[:9]))
+    df_dj = df_links[df_links['source'] == 'Digital Journal'].reset_index(drop=True)
+    df_dj['date'] = pd.to_datetime(df_dj['date'].apply(lambda x: x[:9]))
 
-dj_csv = pd.DataFrame(columns = ["url","date","title", "author", "content","tag", "label"])
-for i, row in tqdm(df_dj.iterrows()):
-    try:
-        url = row["url"]
-        html_soup = get_article(url)
-        title = get_title(html_soup)
-        tag = get_tags(html_soup)
-        content = get_content(html_soup)
-        author = get_author(html_soup)
-        dj_csv = dj_csv.append({"url": url, "date": row["date"], "title": title, "author": author, 
-                                      "content": content,"tag": tag, 
-                                      "label": row["label"]}, 
-                                 ignore_index = True)
-    except:
-        print(i)
-        time.sleep(10)
+    dj_csv = pd.DataFrame(columns = ["url","date","title", "author", "content","tag", "label"])
+    for i, row in tqdm(df_dj.iterrows()):
         try:
             url = row["url"]
             html_soup = get_article(url)
@@ -111,9 +97,23 @@ for i, row in tqdm(df_dj.iterrows()):
                                           "label": row["label"]}, 
                                      ignore_index = True)
         except:
-            continue
+            print(i)
+            time.sleep(10)
+            try:
+                url = row["url"]
+                html_soup = get_article(url)
+                title = get_title(html_soup)
+                tag = get_tags(html_soup)
+                content = get_content(html_soup)
+                author = get_author(html_soup)
+                dj_csv = dj_csv.append({"url": url, "date": row["date"], "title": title, "author": author, 
+                                              "content": content,"tag": tag, 
+                                              "label": row["label"]}, 
+                                         ignore_index = True)
+            except:
+                continue
             
-dj_csv.to_csv("digital_journal.csv", index=False)
+    dj_csv.to_csv("digital_journal.csv", index=False)
 
 
 if __name__ == "__main__":
