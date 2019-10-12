@@ -7,11 +7,11 @@ Folder contains web scraper for Digital Journal:
 
 #### Metadata:
 
-***URL: url of the article
+* URL: url of the article
 
-***Date: date of the article
+* Date: date of the article
 
-***Author: author of the article
+* Author: author of the article
 
 ***Title: headline of the article
 
