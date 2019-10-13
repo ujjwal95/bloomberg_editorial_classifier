@@ -3,5 +3,5 @@ Input: csv file containing url of the articles for this news source.
 Output: csv file containing the scraped data of this site.
 
 Data collected:
-Title, Date, Author, Keywords, Content
+Title, Date, Author, Keywords, URL, Content 
  
