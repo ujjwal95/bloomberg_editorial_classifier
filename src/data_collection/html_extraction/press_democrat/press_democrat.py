@@ -22,7 +22,7 @@ class Press_Democrat:
 			r = requests.get(link)
 				
 			if r.status_code!=200:
-				print(ctr)
+				print('Bad URL', ctr)
 				continue
 
 			soup = BeautifulSoup(r.content, 'lxml')
@@ -32,7 +32,7 @@ class Press_Democrat:
 			text=''
 			keyword = ''
 
-			time.sleep(3)
+			time.sleep(10)
 			try:
 				title = soup.find('meta',attrs={"property":"og:title"})["content"].encode('utf-8')
 			except:
@@ -61,7 +61,6 @@ class Press_Democrat:
 			except:
 				print('Text not found at ', ctr)
 				
-			print(title)#, date, author, keyword, text)
 			try:
 				writer.writerow([title, date, row['Type'], author, keyword, link, text])
 			except:
