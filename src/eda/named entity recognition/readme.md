@@ -36,6 +36,7 @@ We will look at the distribution of different named entities in regular and non-
 
 `CARDINAL`:	Numerals that do not fall under another type.
 
+![Chart](chart.jpg)
 
 **Key Observations**
 
