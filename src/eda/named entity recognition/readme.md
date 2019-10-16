@@ -37,9 +37,9 @@ We will look at the distribution of different named entities in regular and non-
 `CARDINAL`:	Numerals that do not fall under another type.
 
 
-** Key Observations**
+**Key Observations**
 
-As we can observe from the above charts, there is some striking differences in the distribution of named entities in the two classes:
+Please refer to the jupyter notebook for the charts. As we can observe from the charts, there is some striking differences in the distribution of named entities in the two classes:
 
 * **Non-Regular Articles** have many more mentions of person names, languages and nationalities as compared to regular articles.
 * **Regular Articles** on the other hand have much more mentions of locations, quantity, time and date.
