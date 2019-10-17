@@ -1,5 +1,5 @@
 This file contains the code used to visualize the data collected(news articles scraped).<br>
-<br>
+
 - The first plot in the code shows the imbalance across various categories of data. The number of regular articles in our dataset is much
 more than editorials. This suggests that we need to either downsample the regular articles or upsample the editorials.
 - The second plot shows a plot of the number of words in articles across all sources. This plot is used while preprocessing data to 
