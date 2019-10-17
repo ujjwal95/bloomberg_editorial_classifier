@@ -42,6 +42,6 @@ We will look at the distribution of different named entities in regular and non-
 
 Please refer to the jupyter notebook for the charts (Note that the bins in the charts are are left exclusive i.e the first bin does not include the value 0). As we can observe from the charts, there is some striking differences in the distribution of named entities in the two classes:
 
-* **Non-Regular Articles** have many more mentions of person names, languages and nationalities as compared to regular articles.
-* **Regular Articles** on the other hand have much more mentions of locations, quantity, time and date.
+* **Non-Regular Articles** have many more mentions of law and nationalities as compared to regular articles.
+* **Regular Articles** on the other hand have much more mentions of locations, product, quantity, time and date.
 * The distribution is heavily right-skewed for most of the entity types
