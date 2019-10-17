@@ -46,6 +46,7 @@ Let us first look at the different parts of speech detected. We use Spacy packag
 
 `X` : other
 
+![Chart](pos_edav.png)
 
 **Results and observations**
 
