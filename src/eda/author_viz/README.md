@@ -16,12 +16,12 @@ Chart type 2:
 Visualising the top authors contributing to the non-regular type of articles across sources. We try to visualise who are the top authors contributing to the articles of non-regular type here.
 
 Chart type 3:
-Here we try to visualise the top authors for each source.
+Here we try to visualise the top authors for each newspaper source.
 
 Chart type 4:
 We try to visualise which newspapers are the top contributors for:
 1. Regular stories
-2. Editorils
+2. Editorials
 3. Opinions
 4. Op-Ed
 5. Guest articles
