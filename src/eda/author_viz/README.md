@@ -21,9 +21,9 @@ Here we try to visualise the top authors for each newspaper source.
 Chart type 4:
 We try to visualise which newspapers are the top contributors for:
 1. Regular stories
-2. Editorials
-3. Opinions
-4. Op-Ed
+2. Editorial articles
+3. Opinion articles
+4. Op-Ed articles
 5. Guest articles
 
 
