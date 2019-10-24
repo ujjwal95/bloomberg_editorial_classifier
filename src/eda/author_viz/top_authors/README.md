@@ -1,0 +1,1 @@
+This folder contains visualisation results for the top authors for the selected newspapers.
