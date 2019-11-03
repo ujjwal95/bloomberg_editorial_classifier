@@ -1,12 +1,13 @@
 # Processing Data Module
 This module prepares the data for input into ensemble machine learning models and neural network models. The following functions are carried out by the moduls, with the corresponding sub-modules mentioned:
 
-1. Data Assembly - Combines the various data sources together from the data folder (present in the drive), and provides a unified data to the rest of the modules and sub-modules.
+1. Data assembly (data_assembler.py) - Combines the various data sources together from the data folder (present in the drive), and provides a unified data to the rest of the modules and sub-modules.
 
-2. Train-test splits - Carries out a temporal train-test split, which ensures that the test dataset is in the future, to check that the model is robust to future datasets in production.
+2. Train-test splits (data_features_part1.py) - Carries out a temporal train-test split, which ensures that the test dataset is in the future, to check that the model is robust to future datasets in production.
 
-3. Undersampling - Due to a severe imbalance in the training data, 
+3. Undersampling (data_features_part1.py) - Due to a severe imbalance in the training data, it undersamples the training data such that for each target=1 in the data, there is an equivalent target= 0 in the data from the same day and data source. If sufficient target= 0 is not available, a lookback and lookforward is used to enusre that there are a minimum number of target= 0 available.
 
+4. General- purpose feature extraction (data_features_part1.py)- The following features
 
 
 ## Creating Features
