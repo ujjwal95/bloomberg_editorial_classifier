@@ -26,7 +26,8 @@ def read_all_csvs(csv_locations):
                 continue
 #             print(k, l)
             if not (k in base_data):
-                base_data[k] = pd.read_csv(l, encoding='utf-8')
+#                 print(l)
+                base_data[k] = pd.read_csv(l)#, encoding='ascii')
             else:
                 base_data[k] = pd.concat([base_data[k], pd.read_csv(l)])
     
@@ -158,15 +159,23 @@ if __name__ == "__main__":
     base_data['Digital Journal']= news_source_formatter(base_data['Digital Journal'], news_source_name='Digital Journal', rename_dict= digital_journal_renamer)
     print("Formatted for Digital Journal!")
     # formatting for Press Democrat
-    base_data['Press Democrat']['source_name'] = 'Press Democrat'
-    base_data['Press Democrat']['heading'] = base_data['Press Democrat']['heading'].str[2:-1]
-    base_data['Press Democrat']['created_date'] = base_data['Press Democrat']['created_date'].str[2:-1]
-    base_data['Press Democrat']['author'] = base_data['Press Democrat']['author'].str[2:-1]
-    base_data['Press Democrat']['tag'] = base_data['Press Democrat']['tag'].str[2:-1]
-    base_data['Press Democrat']['article_text'] = base_data['Press Democrat']['article_text'].str[4:-1]
+    base_data['Press Democrat']['heading'] = base_data['Press Democrat']['title'].str.strip().str.strip('\n').str.strip('\t')
+    base_data['Press Democrat']['author'] = base_data['Press Democrat']['author'].str.strip().str.strip(',')
+    base_data['Press Democrat']['tag'] = np.nan
+    base_data['Press Democrat']['article_text'] = base_data['Press Democrat']['content'].str.strip().str.strip('\n').str.strip('\t')
+    press_democrat_renamer = {'date': 'created_date'}
 
-    base_data['Press Democrat'] = news_source_formatter(base_data['Press Democrat'], news_source_name='Press Democrat')
+    base_data['Press Democrat'] = news_source_formatter(base_data['Press Democrat'], rename_dict = press_democrat_renamer, news_source_name='Press Democrat')
     print("Formatted for Press Democrat!")    
+    
+    #formatting for Washington Post
+    base_data['washington post']['tag'] = np.nan
+    wash_post_renamer = {'date': 'created_date', 
+                              'title': 'heading',
+                              'content': 'article_text'}
+    base_data['washington post'] = news_source_formatter(base_data['washington post'], rename_dict = wash_post_renamer, news_source_name='washington post')
+    
+
     # combining dataframes
     combined_data = pd.concat(base_data.values(), ignore_index=True)
     print("Combined Data!")
