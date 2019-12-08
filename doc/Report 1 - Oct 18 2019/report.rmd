@@ -180,7 +180,7 @@ Note that the bins in the graphs are are left exclusive (i.e the first bin does 
 
 Now, let us look more deeply into all the named entities in the article text
 
-![Distribution of Parts of Speech \label{figure:1}](images/pos_edav_2.png)
+![Distribution of Parts of Speech \label{figure:1}](images/pos_edav.png)
 
 ##  Named Entities Recognition and exploration for article text
 
