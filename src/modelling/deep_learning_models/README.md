@@ -15,5 +15,5 @@ List of deep learning models implemented are
 ## BiLSTM model
 - BiLSTM with attention
 - BiLSTM without attention
-- Combined BiLSTM model trained for article heading and article text respectively.
+- Multi input BiLSTM model trained for article heading and article text respectively.
 
