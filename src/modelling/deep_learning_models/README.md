@@ -7,10 +7,12 @@ List of deep learning models implemented are
 
 - Bert Uncased Base model
 - Bert Cased Base model
+- Bert Uncased Large model
+- Bert Cased Large model
 
 
 ## LSTM model
-
+- LSTM (Long Short-Term Memory)
 
 ## BiLSTM model
 - BiLSTM with attention
