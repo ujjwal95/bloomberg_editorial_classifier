@@ -24,7 +24,7 @@ information. Our dataset was heavily imbalanced towards regular news articles, w
 of every 10th article being non-regular. An analysis of NER and POS was performed and there
 was a difference in distributions for each class, so, these features were included in our linear
 models. The training dataset was undersampled and contained 6386 articles. The testing was
-performed on two datasets, test (3436), and external test (1385), with the external test being a
+performed on two datasets, test (3436), and external test (1805), with the external test being a
 dataset from another news source. On the test set, XLNet performed the best, and on the
 external test set, BERT was the best model. Logistic regression performed very well and hence,
 we would recommend using Logistic Regression in production.
